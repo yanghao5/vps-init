@@ -5,6 +5,13 @@ if [ "$(id -u)" -ne 0 ]; then
   echo "请使用 root 权限运行此脚本"
   exit 1
 fi
+echo "安装必备软件"
+apt-get update && apt-get install wget curl neovim git btop ufw zsh -y
+
+# SHH
+echo "PubkeyAuthentication yes" | sudo tee -a /etc/ssh/sshd_config
+echo "AuthorizedKeysFile .ssh/authorized_keys" | sudo tee -a /etc/ssh/sshd_config
+sudo systemctl restart sshd
 
 # 如果你过去安装过 docker，先删掉：
 echo "正在卸载已有的 Docker 相关包..."
@@ -41,5 +48,20 @@ apt-get update
 # 安装 Docker 相关包
 echo "正在安装 Docker 和相关工具..."
 apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+
+# 配置 Docker 镜像加速器
+echo "正在配置 Docker 镜像加速器..."
+tee /etc/docker/daemon.json <<EOF
+{
+   "registry-mirrors": [
+   "https://mirror.ccs.tencentyun.com"
+  ]
+}
+EOF
+
+# 重载 systemd 配置并重启 Docker 服务
+echo "正在重载 Docker 配置并重启 Docker 服务..."
+systemctl daemon-reload
+systemctl restart docker
 
 echo "Docker 安装完成!"
