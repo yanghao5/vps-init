@@ -19,7 +19,9 @@ echo "给 root 权限"
 usermod -aG sudo hall
 echo "%sudo   ALL=(ALL:ALL) ALL" | sudo tee -a /etc/sudoers
 
-
+echo "设置密码"
+echo "root:op" | chpasswd
+echo "hall:op" | chpasswd
 
 # SHH
 echo "PubkeyAuthentication yes" | sudo tee -a /etc/ssh/sshd_config
