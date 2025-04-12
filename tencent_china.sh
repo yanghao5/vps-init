@@ -8,10 +8,19 @@ fi
 echo "安装必备软件"
 apt-get update && apt-get install wget curl neovim git btop ufw zsh -y
 
+echo "创建新用户 hall"
+adduser --disabled-password --gecos "" hall
+
+
 # SHH
 echo "PubkeyAuthentication yes" | sudo tee -a /etc/ssh/sshd_config
 echo "AuthorizedKeysFile .ssh/authorized_keys" | sudo tee -a /etc/ssh/sshd_config
 sudo systemctl restart sshd
+
+mkdir -p /home/hall/.ssh
+cp .ssh/authorized_keys /home/hall/.ssh/
+chown hall:hall /home/hall/.ssh/authorized_keys
+
 
 # 如果你过去安装过 docker，先删掉：
 echo "正在卸载已有的 Docker 相关包..."
