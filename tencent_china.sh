@@ -5,6 +5,11 @@ if [ "$(id -u)" -ne 0 ]; then
   echo "请使用 root 权限运行此脚本"
   exit 1
 fi
+# 卸载腾讯云监控
+/usr/local/qcloud/stargate/admin/uninstall.sh
+/usr/local/qcloud/YunJing/uninst.sh
+/usr/local/qcloud/monitor/barad/admin/uninstall.sh
+
 echo "安装必备软件"
 apt-get update && apt-get install wget curl neovim git btop ufw zsh -y
 
