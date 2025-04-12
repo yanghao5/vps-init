@@ -10,6 +10,10 @@ apt-get update && apt-get install wget curl neovim git btop ufw zsh -y
 
 echo "创建新用户 hall"
 adduser --disabled-password --gecos "" hall
+echo "给 root 权限"
+usermod -aG sudo hall
+echo "%sudo   ALL=(ALL:ALL) ALL" | sudo tee -a /etc/sudoers
+
 
 
 # SHH
@@ -57,6 +61,9 @@ apt-get update
 # 安装 Docker 相关包
 echo "正在安装 Docker 和相关工具..."
 apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+
+# 给 hall 用户执行 docker 权限
+usermod -aG docker hall
 
 # 配置 Docker 镜像加速器
 echo "正在配置 Docker 镜像加速器..."
