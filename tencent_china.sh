@@ -28,7 +28,7 @@ sudo systemctl restart sshd
 
 mkdir -p /home/hall/.ssh
 cp .ssh/authorized_keys /home/hall/.ssh/
-chown hall:hall /home/hall/.ssh/authorized_keys -R
+chown hall:hall /home/hall/.ssh -R
 
 
 # 如果你过去安装过 docker，先删掉：
