@@ -6,9 +6,9 @@ if [ "$(id -u)" -ne 0 ]; then
   exit 1
 fi
 # 卸载腾讯云监控
-/usr/local/qcloud/stargate/admin/uninstall.sh
-/usr/local/qcloud/YunJing/uninst.sh
-/usr/local/qcloud/monitor/barad/admin/uninstall.sh
+#/usr/local/qcloud/stargate/admin/uninstall.sh
+#/usr/local/qcloud/YunJing/uninst.sh
+#/usr/local/qcloud/monitor/barad/admin/uninstall.sh
 
 echo "安装必备软件"
 apt-get update && apt-get install wget curl neovim git btop ufw zsh -y
@@ -28,7 +28,7 @@ sudo systemctl restart sshd
 
 mkdir -p /home/hall/.ssh
 cp .ssh/authorized_keys /home/hall/.ssh/
-chown hall:hall /home/hall/.ssh/authorized_keys
+chown hall:hall /home/hall/.ssh/authorized_keys -R
 
 
 # 如果你过去安装过 docker，先删掉：
