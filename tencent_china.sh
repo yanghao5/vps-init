@@ -11,7 +11,7 @@ fi
 #/usr/local/qcloud/monitor/barad/admin/uninstall.sh
 
 echo "安装必备软件"
-apt-get update && apt-get install wget curl neovim git btop ufw zsh -y
+apt-get update && apt-get install wget curl neovim git btop ufw zsh rsync -y
 
 echo "创建新用户 hall"
 adduser --disabled-password --gecos "" hall
