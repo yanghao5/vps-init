@@ -87,4 +87,13 @@ echo "正在重载 Docker 配置并重启 Docker 服务..."
 systemctl daemon-reload
 systemctl restart docker
 
+# zsh
+mv install.sh /home/hall
+chown hall:hall /home/hall/install.sh
+chmod +x /home/hall/install.sh
+
+mv ohmyzsh.git /home/hall
+chown hall:hall -R /home/hall/ohmyzsh.git
+chmod 700 -R /home/hall/ohmyzsh.git
+
 echo "Docker 安装完成!"
