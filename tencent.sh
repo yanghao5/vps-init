@@ -32,4 +32,6 @@ sh ./get-docker.sh
 usermod -aG docker hall
 
 # NVM
+su hall
+cd ~
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.2/install.sh | bash
