@@ -6,16 +6,16 @@ if [ "$(id -u)" -ne 0 ]; then
   exit 1
 fi
 
-echo "安装必备软件"
+# install 
 apt-get update && apt-get install wget curl neovim git btop ufw zsh rsync -y
 
-echo "创建新用户 hall"
+#  add user hall
 adduser --disabled-password --gecos "" hall
 echo "给 root 权限"
 usermod -aG sudo hall
 echo "%sudo   ALL=(ALL:ALL) ALL" | sudo tee -a /etc/sudoers
 
-echo "设置密码"
+# set passwd
 echo "root:op" | chpasswd
 echo "hall:op" | chpasswd
 
