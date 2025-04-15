@@ -28,4 +28,7 @@ sudo systemctl restart sshd
 wget https://get.docker.com -O get-docker.sh 
 sh ./get-docker.sh
 
+## 给 hall 用户执行 docker 权限
+usermod -aG docker hall
+
 echo "Docker 安装完成!"
