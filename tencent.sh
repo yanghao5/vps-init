@@ -31,7 +31,13 @@ sh ./get-docker.sh
 ## 给 hall 用户执行 docker 权限
 usermod -aG docker hall
 
+# Cmake
+wget https://github.com/Kitware/CMake/releases/download/v3.28.2/cmake-3.28.2-linux-x86_64.tar.gz
+tar -C /opt -xzf cmake-3.28.2-linux-x86_64.tar.gz
+
+
 # NVM
 su hall
 cd ~
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.2/install.sh | bash
+rm install.sh
