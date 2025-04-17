@@ -8,7 +8,7 @@ cd config
 mv .zshrc /home/hall/
 mv .zsh_envs /home/hall/
 mv .zsh_aliases /home/hall/
-mv .ssh/ /home/hall/.ssh
+mv .ssh/* /home/hall/.ssh
 
 ## neovim
 mkdir -p /home/hall/.config/nvim 
