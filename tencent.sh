@@ -38,6 +38,13 @@ sh ./get-docker.sh
 usermod -aG docker hall
 
 # hall install files
+
+# shell scripts
+chmod +x restore.sh tencent_user.sh
+chown hall:hall restore.sh tencent_user.sh
+mv restore.sh /home/hall
+mv tencent_user.sh /home/hall
+
 #ohmyzsh
 chmod +x ohmyzsh_install.sh
 chown hall:hall ohmyzsh_install.sh
