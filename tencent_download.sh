@@ -1,6 +1,10 @@
 #!/bin/sh
 apt-get update && apt-get install git wget -y
+
 wget https://raw.githubusercontent.com/yanghao5/vpsinit/refs/heads/main/tencent.sh
+wget https://raw.githubusercontent.com/yanghao5/vpsinit/refs/heads/main/restore.sh
+wget https://raw.githubusercontent.com/yanghao5/vpsinit/refs/heads/main/tencent_user.sh
+
 wget https://get.docker.com -O get-docker.sh 
 # ohmyzsh
 wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O ohmyzsh_install.sh
