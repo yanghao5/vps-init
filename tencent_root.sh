@@ -61,6 +61,7 @@ mv cmake-3.28.2-linux-x86_64.tar.gz /home/hall
 
 # LLVM
 chown hall:hall llvm.sh
+chmod +x llvm.sh
 mv llvm.sh /home/hall
 
 # Golang
