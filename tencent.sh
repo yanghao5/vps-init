@@ -11,7 +11,7 @@ apt-get update && apt-get install wget curl neovim git btop ufw zsh rsync -y
 
 #  add user hall
 adduser --disabled-password --gecos "" hall
-echo "给 root 权限"
+# 给 root 权限
 usermod -aG sudo hall
 echo "%sudo   ALL=(ALL:ALL) ALL" | sudo tee -a /etc/sudoers
 
@@ -24,20 +24,38 @@ echo "PubkeyAuthentication yes" | sudo tee -a /etc/ssh/sshd_config
 echo "AuthorizedKeysFile .ssh/authorized_keys" | sudo tee -a /etc/ssh/sshd_config
 sudo systemctl restart sshd
 
+## hall ssh key
+mkdir -p /home/hall/.ssh
+cp /root/.ssh/authorized_keys /home/hall/.ssh
+chown -R hall:hall /home/hall/.ssh
+chmod 700 /home/hall/.ssh
+chmod 600 /home/hall/.ssh/authorized_keys
+
 # Docker
-wget https://get.docker.com -O get-docker.sh 
 sh ./get-docker.sh
 
 ## 给 hall 用户执行 docker 权限
 usermod -aG docker hall
 
+# hall install files
+#ohmyzsh
+chmod +x ohmyzsh_install.sh
+chown hall:hall ohmyzsh_install.sh
+mv ohmyzsh_install.sh /home/hall
+
+#nvm
+chmod +x nvm_install.sh
+chown hall:hall nvm_install.sh
+mv nvm_install.sh /home/hall
+
 # Cmake
-wget https://github.com/Kitware/CMake/releases/download/v3.28.2/cmake-3.28.2-linux-x86_64.tar.gz
-tar -C /opt -xzf cmake-3.28.2-linux-x86_64.tar.gz
+chown hall:hall cmake-3.28.2-linux-x86_64.tar.gz
+mv cmake-3.28.2-linux-x86_64.tar.gz /home/hall
 
+# LLVM
+chown hall:hall llvm.sh
+mv llvm.sh /home/hall
 
-# NVM
-su hall
-cd ~
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.2/install.sh | bash
-rm install.sh
+# Golang
+chown hall:hall go1.24.2.linux-amd64.tar.gz
+mv go1.24.2.linux-amd64.tar.gz /home/hall
