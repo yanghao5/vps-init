@@ -22,3 +22,10 @@ cd ..
 rsync -rv apps /home/hall/
 rsync -rv file /home/hall/
 rsync -rv dev /home/hall/
+
+# delete files
+rm llvm.sh nvm_install.sh ohmyzsh_install.sh restore.sh tencent_user.sh
+rm cmake-3.28.2-linux-x86_64.tar.gz
+rm go1.24.2.linux-amd64.tar.gz
+rm backup.tar.gz
+sudo rm backup/ -rf
