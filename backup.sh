@@ -1,5 +1,4 @@
 #!/bin/bash
-
 mkdir -p backup/config
 
 # config 
@@ -16,8 +15,8 @@ rsync -rv /home/hall/.config/nvim /home/hall/backup/config/
 cp .gitconfig /home/hall/backup/config/
 
 # apps file dev
-rsync -rv apps /home/hall/backup/
+sudo rsync -rv apps /home/hall/backup/
 rsync -rv file /home/hall/backup/ 
-rsync -rv dev /home/hall/backup/ 
+sudo rsync -rv dev /home/hall/backup/ 
 
 tar -czvf backup.tar.gz backup
