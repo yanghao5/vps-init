@@ -91,10 +91,10 @@ systemctl daemon-reload
 systemctl restart docker
 
 # shell scripts
-chmod +x restore.sh tencent_user.sh
-chown hall:hall restore.sh tencent_user.sh
+chmod +x restore.sh tencent_user_china.sh
+chown hall:hall restore.sh tencent_user_china.sh
 mv restore.sh /home/hall
-mv tencent_user.sh /home/hall
+mv tencent_user_china.sh /home/hall
 
 # oh my zsh
 chown -R hall:hall ohmyzsh.git
