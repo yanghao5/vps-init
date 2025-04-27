@@ -7,13 +7,13 @@ if [ "$(id -u)" -ne 0 ]; then
 fi
 
 # install 
-apt-get update && apt-get install wget curl neovim git btop ufw zsh rsync jq -y
+apt-get update && apt-get install sudo wget curl neovim git btop zsh rsync jq -y
 
 #  add user hall
 adduser --disabled-password --gecos "" hall
 # 给 root 权限
 usermod -aG sudo hall
-echo "%sudo   ALL=(ALL:ALL) ALL" | sudo tee -a /etc/sudoers
+echo "%sudo   ALL=(ALL:ALL) ALL" | tee -a /etc/sudoers
 
 # set passwd
 echo "root:op" | chpasswd
