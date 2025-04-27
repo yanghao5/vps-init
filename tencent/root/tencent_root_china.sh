@@ -10,16 +10,16 @@ fi
 #/usr/local/qcloud/YunJing/uninst.sh
 #/usr/local/qcloud/monitor/barad/admin/uninstall.sh
 
-echo "安装必备软件"
-apt-get update && apt-get install wget curl neovim git btop ufw zsh rsync -y
+# install 
+apt-get update && apt-get install sudo wget curl neovim git btop zsh rsync -y
 
-echo "创建新用户 hall"
+# add user hall
 adduser --disabled-password --gecos "" hall
-echo "给 root 权限"
+# root permisson
 usermod -aG sudo hall
 echo "%sudo   ALL=(ALL:ALL) ALL" | sudo tee -a /etc/sudoers
 
-echo "设置密码"
+# set password
 echo "root:op" | chpasswd
 echo "hall:op" | chpasswd
 
@@ -28,19 +28,21 @@ echo "PubkeyAuthentication yes" | sudo tee -a /etc/ssh/sshd_config
 echo "AuthorizedKeysFile .ssh/authorized_keys" | sudo tee -a /etc/ssh/sshd_config
 sudo systemctl restart sshd
 
+## hall ssh key
 mkdir -p /home/hall/.ssh
-cp .ssh/authorized_keys /home/hall/.ssh/
-chown hall:hall /home/hall/.ssh -R
+cp /root/.ssh/authorized_keys /home/hall/.ssh
+chown -R hall:hall /home/hall/.ssh
+chmod 700 /home/hall/.ssh
+chmod 600 /home/hall/.ssh/authorized_keys
 
 
-# 如果你过去安装过 docker，先删掉：
+# docker
 echo "正在卸载已有的 Docker 相关包..."
 for pkg in docker.io docker-doc docker-compose podman-docker containerd runc; do
   apt-get remove -y $pkg
 done
 
 # 安装必需的依赖
-echo "正在安装必需的依赖..."
 apt-get update && apt-get install -y ca-certificates curl gnupg
 
 # 创建 apt 密钥目录并设置权限
