@@ -5,6 +5,7 @@ if [ "$(id -u)" -ne 0 ]; then
   echo "请使用 root 权限运行此脚本"
   exit 1
 fi
+
 # 卸载腾讯云监控
 #/usr/local/qcloud/stargate/admin/uninstall.sh
 #/usr/local/qcloud/YunJing/uninst.sh
@@ -89,13 +90,26 @@ echo "正在重载 Docker 配置并重启 Docker 服务..."
 systemctl daemon-reload
 systemctl restart docker
 
-# zsh
-mv install.sh /home/hall
-chown hall:hall /home/hall/install.sh
-chmod +x /home/hall/install.sh
+# shell scripts
+chmod +x restore.sh tencent_user.sh
+chown hall:hall restore.sh tencent_user.sh
+mv restore.sh /home/hall
+mv tencent_user.sh /home/hall
 
-mv ohmyzsh.git /home/hall
-chown hall:hall -R /home/hall/ohmyzsh.git
-chmod 700 -R /home/hall/ohmyzsh.git
+# oh my zsh
+chown -R hall:hall ohmyzsh.git
+chmod 700 -R ohmyzsh.git
+mv  ohmyzsh.git /home/hall
 
-echo "Docker 安装完成!"
+# Cmake
+chown hall:hall cmake-3.28.2-linux-x86_64.tar.gz
+mv cmake-3.28.2-linux-x86_64.tar.gz /home/hall
+
+# LLVM
+chown hall:hall llvm.sh
+chmod +x llvm.sh
+mv llvm.sh /home/hall
+
+# Golang
+chown hall:hall go1.24.2.linux-amd64.tar.gz
+mv go1.24.2.linux-amd64.tar.gz /home/hall
