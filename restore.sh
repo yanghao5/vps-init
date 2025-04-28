@@ -1,6 +1,6 @@
 #!/bin/bash
 
-zip backup.zip
+unzip backup.zip
 cd backup
 
 # config 
