@@ -96,6 +96,11 @@ chown hall:hall restore.sh tencent_user_china.sh
 mv restore.sh /home/hall
 mv tencent_user_china.sh /home/hall
 
+# nvm
+chown -R hall:hall nvm.git
+chmod 700 -R nvm.git
+mv  nvm.git /home/hall
+
 # oh my zsh
 chown -R hall:hall ohmyzsh.git
 chmod 700 -R ohmyzsh.git
