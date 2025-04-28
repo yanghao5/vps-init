@@ -8,11 +8,11 @@ wget ${REMOTE}https://raw.githubusercontent.com/yanghao5/vps-init/refs/heads/mai
 wget ${REMOTE}https://raw.githubusercontent.com/yanghao5/vps-init/refs/heads/main/tencent/user/tencent_user_china.sh
 
 # nvm
-git clone --bare ${REMOTE}https://github.com/nvm-sh/nvm.git
+git clone --bare --depth=1 ${REMOTE}https://github.com/nvm-sh/nvm.git
 
 # ohmyzsh
 wget ${REMOTE}https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O ohmyzsh_install.sh
-git clone --bare ${REMOTE}https://github.com/ohmyzsh/ohmyzsh.git
+git clone --bare --depth=1 ${REMOTE}https://github.com/ohmyzsh/ohmyzsh.git
 
 # Cmake 3.28.2
 wget ${REMOTE}https://github.com/Kitware/CMake/releases/download/v3.28.2/cmake-3.28.2-linux-x86_64.tar.gz
