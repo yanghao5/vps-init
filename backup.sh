@@ -19,4 +19,4 @@ sudo rsync -rv apps /home/hall/backup/
 rsync -rv file /home/hall/backup/ 
 sudo rsync -rv dev /home/hall/backup/ 
 
-tar -czvf backup.tar.gz backup
+zip -r backup.zip backup
