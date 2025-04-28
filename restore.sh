@@ -1,6 +1,6 @@
 #!/bin/bash
 
-tar -xzvf backup.tar.gz
+zip backup.zip
 cd backup
 
 # config 
