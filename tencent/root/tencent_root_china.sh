@@ -101,6 +101,10 @@ chown -R hall:hall ohmyzsh.git
 chmod 700 -R ohmyzsh.git
 mv  ohmyzsh.git /home/hall
 
+chmod +x ohmyzsh_install.sh
+chown hall:hall ohmyzsh_install.sh
+mv ohmyzsh_install.sh /home/hall
+
 # Cmake
 chown hall:hall cmake-3.28.2-linux-x86_64.tar.gz
 mv cmake-3.28.2-linux-x86_64.tar.gz /home/hall
