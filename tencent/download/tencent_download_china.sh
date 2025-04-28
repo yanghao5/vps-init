@@ -6,6 +6,8 @@ wget ${REMOTE}https://raw.githubusercontent.com/yanghao5/vps-init/refs/heads/mai
 wget ${REMOTE}https://raw.githubusercontent.com/yanghao5/vps-init/refs/heads/main/restore.sh
 wget ${REMOTE}https://raw.githubusercontent.com/yanghao5/vps-init/refs/heads/main/tencent/user/tencent_user_china.sh
 
+# ohmyzsh
+wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O ohmyzsh_install.sh
 git clone --bare ${REMOTE}https://github.com/ohmyzsh/ohmyzsh.git
 
 # Cmake 3.28.2
