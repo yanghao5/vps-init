@@ -6,6 +6,14 @@ if [ "$(id -u)" -ne 0 ]; then
   exit 1
 fi
 
+# swap mem 4G
+dd if=/dev/zero of=/swapfile bs=1G count=4
+chmod 600 /swapfile
+mkswap /swapfile
+swapon /swapfile
+sysctl vm.swappiness=90
+
+
 # install 
 apt-get update && apt-get install sudo wget curl neovim git btop zsh rsync jq -y
 
