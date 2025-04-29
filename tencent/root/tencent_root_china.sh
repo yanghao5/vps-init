@@ -6,6 +6,13 @@ if [ "$(id -u)" -ne 0 ]; then
   exit 1
 fi
 
+# swap mem 4G
+dd if=/dev/zero of=/swapfile bs=1G count=4
+chmod 600 /swapfile
+mkswap /swapfile
+swapon /swapfile
+sysctl vm.swappiness=90
+
 # 卸载腾讯云监控
 #/usr/local/qcloud/stargate/admin/uninstall.sh
 #/usr/local/qcloud/YunJing/uninst.sh
