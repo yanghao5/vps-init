@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# nvm
+bash nvm_install.sh
+
 # go 1.24.2
 sudo tar -C /usr/local -xzf go1.24.2.linux-amd64.tar.gz
 
@@ -9,3 +12,6 @@ sudo ./llvm.sh 17 all -m https://mirrors.tuna.tsinghua.edu.cn/llvm-apt
 
 ## cmake
 sudo tar -C /opt -xzf cmake-3.28.2-linux-x86_64.tar.gz
+
+# env
+echo "export PATH=$PATH:/usr/sbin" | tee -a .bashrc
