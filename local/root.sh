@@ -19,10 +19,10 @@ usermod -aG docker hall
 # hall install files
 
 # shell scripts
-chmod +x restore.sh tencent_user.sh
-chown hall:hall restore.sh tencent_user.sh
+chmod +x restore.sh user.sh
+chown hall:hall restore.sh user.sh
 mv restore.sh /home/hall
-mv tencent_user.sh /home/hall
+mv user.sh /home/hall
 
 #ohmyzsh
 chmod +x ohmyzsh_install.sh

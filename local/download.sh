@@ -1,6 +1,6 @@
 #!/bin/sh
 ture > /etc/apt/sources.list
-wget https://github.com/yanghao5/vps-init/blob/main/local/debian.sources
+wget https://raw.githubusercontent.com/yanghao5/vps-init/refs/heads/main/local/debian.sources
 mv debian.sources /etc/apt/sources.list.d/
 
 apt-get update && apt-get install sudo git -y
@@ -8,7 +8,9 @@ apt-get update && apt-get install sudo git -y
 # restore
 wget https://raw.githubusercontent.com/yanghao5/vps-init/refs/heads/main/restore.sh
 # root
+wget https://raw.githubusercontent.com/yanghao5/vps-init/refs/heads/main/local/root.sh
 # user
+wget https://raw.githubusercontent.com/yanghao5/vps-init/refs/heads/main/local/user.sh
 
 # docker
 wget https://get.docker.com -O get-docker.sh 
