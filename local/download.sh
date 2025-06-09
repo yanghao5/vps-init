@@ -1,4 +1,8 @@
 #!/bin/sh
+ture > > /etc/apt/sources.list
+wget https://github.com/yanghao5/vps-init/blob/main/local/debian.sources
+mv debian.sources /etc/apt/sources.list.d/
+
 apt-get update && apt-get install sudo git -y
 
 # restore
