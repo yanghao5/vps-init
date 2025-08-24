@@ -2,7 +2,7 @@
 REMOTE=${REMOTE:-https://ghfast.top/}
 sudo apt-get update && sudo apt-get install git wget -y
 
-# rm -rf tencent_download_china.sh tencent_root_china.sh restore.sh tencent_user_china.sh nvm.git ohmyzsh_install.sh ohmyzsh.git cmake-3.28.2-linux-x86_64.tar.gz llvm.sh go1.24.2.linux-amd64.tar.gz
+# script
 wget ${REMOTE}https://raw.githubusercontent.com/yanghao5/vps-init/refs/heads/main/tencent/root/tencent_root_china.sh
 wget ${REMOTE}https://raw.githubusercontent.com/yanghao5/vps-init/refs/heads/main/restore.sh
 wget ${REMOTE}https://raw.githubusercontent.com/yanghao5/vps-init/refs/heads/main/tencent/user/tencent_user_china.sh

@@ -1,24 +1,21 @@
 #!/bin/bash
 
-unzip backup.zip
-cd backup
-
 # config 
 cd config
-mv .zshrc /home/hall/
-mv .zsh_envs /home/hall/
-mv .zsh_aliases /home/hall/
-mv .ssh/* /home/hall/.ssh
+mv .zshrc /home/momo/
+mv .zsh_envs /home/momo/
+mv .zsh_aliases /home/momo/
+mv .ssh/* /home/momo/.ssh
 
 ## neovim
-mkdir -p /home/hall/.config/nvim 
-rsync -rv nvim/ /home/hall/.config/nvim 
+mkdir -p /home/momo/.config/nvim 
+rsync -rv nvim/ /home/momo/.config/nvim 
 
 ## git
-cp .gitconfig /home/hall/
+cp .gitconfig /home/momo/
 
 # apps file dev
 cd ..
-rsync -rv apps /home/hall/
-rsync -rv file /home/hall/
-rsync -rv dev /home/hall/
+rsync -rv apps /home/momo/
+rsync -rv file /home/momo/
+rsync -rv dev /home/momo/
