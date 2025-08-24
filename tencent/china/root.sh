@@ -36,6 +36,8 @@ echo "momo:op" | chpasswd
 # SHH
 echo "PubkeyAuthentication yes" | tee -a /etc/ssh/sshd_config
 echo "AuthorizedKeysFile .ssh/authorized_keys" | tee -a /etc/ssh/sshd_config
+echo "Match User proxy" | tee -a /etc/ssh/sshd_config
+echo "\tPasswordAuthentication yes" | tee -a /etc/ssh/sshd_config
 sudo systemctl restart sshd
 
 ## momo ssh key
@@ -95,8 +97,8 @@ usermod -aG docker momo
 echo "正在配置 Docker 镜像加速器..."
 tee /etc/docker/daemon.json <<EOF
 {
-   "registry-mirrors": [
-   "https://mirror.ccs.tencentyun.com"
+  "registry-mirrors": [
+    "https://mirror.ccs.tencentyun.com"
   ]
 }
 EOF
@@ -107,10 +109,10 @@ systemctl daemon-reload
 systemctl restart docker
 
 # shell scripts
-chmod +x restore.sh tencent_user_china.sh
-chown momo:momo restore.sh tencent_user_china.sh
+chmod +x restore.sh user.sh
+chown momo:momo restore.sh user.sh
 mv restore.sh /home/momo
-mv tencent_user_china.sh /home/momo
+mv user.sh /home/momo
 
 # nvm
 chown -R momo:momo nvm.git
