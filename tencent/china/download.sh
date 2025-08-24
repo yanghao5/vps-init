@@ -1,11 +1,11 @@
 #!/bin/sh
-REMOTE=${REMOTE:-https://ghfast.top/}
+REMOTE=${REMOTE:-https://gh-proxy.com/}
 sudo apt-get update && sudo apt-get install git wget -y
 
 # script
-wget ${REMOTE}https://raw.githubusercontent.com/yanghao5/vps-init/refs/heads/main/tencent/root/tencent_root_china.sh
-wget ${REMOTE}https://raw.githubusercontent.com/yanghao5/vps-init/refs/heads/main/restore.sh
-wget ${REMOTE}https://raw.githubusercontent.com/yanghao5/vps-init/refs/heads/main/tencent/user/tencent_user_china.sh
+wget ${REMOTE}https://raw.githubusercontent.com/yanghao5/vps-init/refs/heads/main/tencent/china/root.sh
+wget ${REMOTE}https://raw.githubusercontent.com/yanghao5/vps-init/refs/heads/main/tencent/china/restore.sh
+wget ${REMOTE}https://raw.githubusercontent.com/yanghao5/vps-init/refs/heads/main/tencent/china/user.sh
 
 # nvm
 git clone --bare --depth=1 ${REMOTE}https://github.com/nvm-sh/nvm.git
