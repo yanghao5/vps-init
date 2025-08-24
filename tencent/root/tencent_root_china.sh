@@ -21,15 +21,17 @@ sysctl vm.swappiness=90
 # install 
 apt-get update && apt-get install sudo wget curl neovim git btop zsh rsync -y
 
-# add user hall
-adduser --disabled-password --gecos "" hall
+# add user momo proxy jumper
+adduser --disabled-password --gecos "" momo
+adduser --disabled-password --gecos "" proxy
+adduser --disabled-password --gecos "" jumper
 # root permisson
-usermod -aG sudo hall
+usermod -aG sudo momo
 echo "%sudo   ALL=(ALL:ALL) ALL" | sudo tee -a /etc/sudoers
 
 # set password
 echo "root:op" | chpasswd
-echo "hall:op" | chpasswd
+echo "momo:op" | chpasswd
 
 # SHH
 echo "PubkeyAuthentication yes" | sudo tee -a /etc/ssh/sshd_config
