@@ -1,5 +1,7 @@
 #!/bin/bash
 
+cd backup
+
 # config 
 cd config
 mv .zshrc /home/momo/
