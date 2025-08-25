@@ -17,61 +17,73 @@ sysctl vm.swappiness=90
 # install 
 apt-get update && apt-get install sudo wget curl neovim git btop zsh rsync jq -y
 
-#  add user hall
-adduser --disabled-password --gecos "" hall
+# add user momo proxy jumper
+adduser --disabled-password --gecos "" momo
+adduser --disabled-password --gecos "" lain
+adduser --disabled-password --gecos "" jumper
 # 给 root 权限
-usermod -aG sudo hall
+usermod -aG sudo momo
 echo "%sudo   ALL=(ALL:ALL) ALL" | tee -a /etc/sudoers
 
 # set passwd
 echo "root:op" | chpasswd
-echo "hall:op" | chpasswd
+echo "momo:op" | chpasswd
 
 # SHH
-echo "PubkeyAuthentication yes" | sudo tee -a /etc/ssh/sshd_config
-echo "AuthorizedKeysFile .ssh/authorized_keys" | sudo tee -a /etc/ssh/sshd_config
+echo "Port 80" | tee -a /etc/ssh/sshd_config
+echo "PubkeyAuthentication yes" | tee -a /etc/ssh/sshd_config
+echo "AuthorizedKeysFile .ssh/authorized_keys" | tee -a /etc/ssh/sshd_config
+echo "Match User lain" | tee -a /etc/ssh/sshd_config
+echo "  PasswordAuthentication yes" | tee -a /etc/ssh/sshd_config
 sudo systemctl restart sshd
 
-## hall ssh key
-mkdir -p /home/hall/.ssh
-cp /root/.ssh/authorized_keys /home/hall/.ssh
-chown -R hall:hall /home/hall/.ssh
-chmod 700 /home/hall/.ssh
-chmod 600 /home/hall/.ssh/authorized_keys
+## momo ssh key
+mkdir -p /home/momo/.ssh
+cp /root/.ssh/authorized_keys /home/momo/.ssh
+chown -R momo:momo /home/momo/.ssh
+chmod 700 /home/momo/.ssh
+chmod 600 /home/momo/.ssh/authorized_keys
+
+## jumper ssh key
+mkdir -p /home/jumper/.ssh
+cp /root/.ssh/authorized_keys /home/jumper/.ssh
+chown -R jumper:jumper /home/jumper/.ssh
+chmod 700 /home/jumper/.ssh
+chmod 600 /home/jumper/.ssh/authorized_keys
 
 # Docker
 sh ./get-docker.sh
 
-## 给 hall 用户执行 docker 权限
-usermod -aG docker hall
+## 给 momo 用户执行 docker 权限
+usermod -aG docker momo
 
-# hall install files
+# install files
 
 # shell scripts
-chmod +x restore.sh tencent_user.sh
-chown hall:hall restore.sh tencent_user.sh
-mv restore.sh /home/hall
-mv tencent_user.sh /home/hall
+chmod +x restore.sh user.sh
+chown momo:momo restore.sh user.sh
+mv restore.sh /home/momo
+mv user.sh /home/momo
 
 #ohmyzsh
 chmod +x ohmyzsh_install.sh
-chown hall:hall ohmyzsh_install.sh
-mv ohmyzsh_install.sh /home/hall
+chown momo:momo ohmyzsh_install.sh
+mv install.sh /home/momo
 
 #nvm
 chmod +x nvm_install.sh
-chown hall:hall nvm_install.sh
-mv nvm_install.sh /home/hall
+chown momo:momo nvm_install.sh
+mv nvm_install.sh /home/momo
 
 # Cmake
-chown hall:hall cmake-3.28.2-linux-x86_64.tar.gz
-mv cmake-3.28.2-linux-x86_64.tar.gz /home/hall
+chown momo:momo cmake-3.28.2-linux-x86_64.tar.gz
+mv cmake-3.28.2-linux-x86_64.tar.gz /home/momo
 
 # LLVM
-chown hall:hall llvm.sh
+chown momo:momo llvm.sh
 chmod +x llvm.sh
-mv llvm.sh /home/hall
+mv llvm.sh /home/momo
 
 # Golang
-chown hall:hall go1.24.2.linux-amd64.tar.gz
-mv go1.24.2.linux-amd64.tar.gz /home/hall
+chown momo:momo go1.24.2.linux-amd64.tar.gz
+mv go1.24.2.linux-amd64.tar.gz /home/momo
