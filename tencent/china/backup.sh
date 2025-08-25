@@ -6,6 +6,8 @@ mkdir -p backup/config
 cp .zshrc /home/momo/backup/config/
 cp .zsh_envs /home/momo/backup/config/
 cp .zsh_aliases /home/momo/backup/config/
+
+# ssh
 rsync -rv --exclude 'authorized_keys' /home/momo/.ssh /home/momo/backup/config/ 
 
 ## neovim
@@ -19,4 +21,6 @@ sudo rsync -rv apps /home/momo/backup/
 rsync -rv file /home/momo/backup/ 
 sudo rsync -rv dev /home/momo/backup/ 
 
-zip -r backup.zip backup
+timestamp=$(date "+%Y%m%d%H%M")
+filename="backup_${timestamp}.zip"
+zip -r ${filename} backup
