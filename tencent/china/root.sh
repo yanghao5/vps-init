@@ -23,7 +23,7 @@ apt-get update && apt-get install sudo wget curl neovim git btop zsh rsync -y
 
 # add user momo proxy jumper
 adduser --disabled-password --gecos "" momo
-adduser --disabled-password --gecos "" proxy
+adduser --disabled-password --gecos "" lain
 adduser --disabled-password --gecos "" jumper
 # root permisson
 usermod -aG sudo momo
