@@ -68,7 +68,7 @@ mv user.sh /home/momo
 #ohmyzsh
 chmod +x ohmyzsh_install.sh
 chown momo:momo ohmyzsh_install.sh
-mv install.sh /home/momo
+mv ohmyzsh_install.sh /home/momo
 
 #nvm
 chmod +x nvm_install.sh
