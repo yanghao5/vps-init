@@ -36,8 +36,8 @@ echo "momo:op" | chpasswd
 # SHH
 echo "PubkeyAuthentication yes" | tee -a /etc/ssh/sshd_config
 echo "AuthorizedKeysFile .ssh/authorized_keys" | tee -a /etc/ssh/sshd_config
-echo "Match User proxy" | tee -a /etc/ssh/sshd_config
-echo "\tPasswordAuthentication yes" | tee -a /etc/ssh/sshd_config
+echo "Match User lain" | tee -a /etc/ssh/sshd_config
+echo "  PasswordAuthentication yes" | tee -a /etc/ssh/sshd_config
 sudo systemctl restart sshd
 
 ## momo ssh key
