@@ -1,6 +1,6 @@
 #!/bin/sh
 REMOTE=${REMOTE:-https://gh-proxy.com/}
-sudo apt-get update && sudo apt-get install git wget -y
+apt-get update && sudo apt-get install git wget -y
 
 # script
 wget ${REMOTE}https://raw.githubusercontent.com/yanghao5/vps-init/refs/heads/main/tencent/china/root.sh
